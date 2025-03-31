@@ -1,0 +1,10 @@
+ktor:
+    application:
+        modules:
+            - co.ke.xently.ApplicationKt.module
+    deployment:
+        port: 8080
+postgres:
+  url: "jdbc:postgresql://localhost:5432/test"
+  user: test
+  password: test

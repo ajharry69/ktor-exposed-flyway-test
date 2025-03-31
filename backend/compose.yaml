@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: "postgis/postgis:15-3.4-alpine"
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: test
+  redis:
+    image: "redis:7.2-alpine"
+  mongodb:
+    image: "mongo:8.0-rc-jammy"
+    environment:
+      MONGO_INITDB_DATABASE: test
+      MONGO_INITDB_ROOT_PASSWORD: test
+      MONGO_INITDB_ROOT_USERNAME: test
+#    volumes:
+#      - "./init.js:/docker-entrypoint-initdb.d/data.js:ro"
+  mongo-express:
+    image: mongo-express
+    restart: always
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: test
+      ME_CONFIG_MONGODB_ADMINPASSWORD: test
+      ME_CONFIG_MONGODB_URL: mongodb://test:test@mongodb:27017/
+#      ME_CONFIG_BASICAUTH: false
